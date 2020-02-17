@@ -13,4 +13,25 @@ public class flower {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String imagePath;
+
+    public flower(long id, String imagePath) {
+        this.id = id;
+        this.imagePath = imagePath;
+    }
+
+    public flower(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
 }
