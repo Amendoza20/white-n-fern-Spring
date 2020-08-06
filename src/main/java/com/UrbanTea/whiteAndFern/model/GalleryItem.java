@@ -1,4 +1,4 @@
-package com.UrbanTea.whiteAndFern.Model;
+package com.UrbanTea.whiteAndFern.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class galleryItem {
+public class GalleryItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -14,14 +14,14 @@ public class galleryItem {
     private String imagePath;
     private String description;
 
-    public galleryItem(long id, String title, String imagePath, String description) {
+    public GalleryItem(long id, String title, String imagePath, String description) {
         this.id = id;
         this.title = title;
         this.imagePath = imagePath;
         this.description = description;
     }
 
-    public galleryItem(String title, String imagePath, String description) {
+    public GalleryItem(String title, String imagePath, String description) {
         this.title = title;
         this.imagePath = imagePath;
         this.description = description;
