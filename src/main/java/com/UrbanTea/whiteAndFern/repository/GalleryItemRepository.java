@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GalleryItemRepository extends JpaRepository<GalleryItem, Long> {
-    GalleryItem findByItemName (String name);
+    GalleryItem findGalleryItemByTitle (String name);
 }
