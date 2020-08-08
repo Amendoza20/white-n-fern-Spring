@@ -25,7 +25,7 @@ public class FlowerService {
         return repository.getOne(id);
     }
 
-    public boolean deleteFlower (long id){
+    public boolean deleteFlowerById (long id){
         Flower flower = findFlowerById(id);
         if (flower != null){
             repository.delete(flower);
