@@ -25,6 +25,7 @@ public class WorkshopService {
        return repository.getOne(id);
     }
 
+
     public boolean deleteWorkshop (Long id) {
         Workshop workshop = findById(id);
         if (workshop != null) {
@@ -32,5 +33,25 @@ public class WorkshopService {
             return true;
         }
         return false;
+    }
+
+    public Workshop updateWorkshop(String title, Workshop workshop) {
+        Workshop OGWorkshop = repository.findByTitle(title);
+        if(workshop.getTitle() != null) {
+            OGWorkshop.setTitle(workshop.getTitle());
+        }
+        if(workshop.getDate() != null) {
+            OGWorkshop.setDate(workshop.getDate());
+        }
+        if(workshop.getInfo() != null) {
+            OGWorkshop.setTitle(workshop.getTitle());
+        }
+        if(workshop.getTime() != null) {
+            OGWorkshop.setTime(workshop.getTime());
+        }
+        if(workshop.getNumOfSeats() != 0) {
+            OGWorkshop.setNumOfSeats(workshop.getNumOfSeats());
+        }
+        return repository.save(OGWorkshop);
     }
 }
