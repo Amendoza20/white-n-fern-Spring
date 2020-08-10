@@ -24,6 +24,22 @@ public class GalleryItemService {
         return repository.getOne(id);
     }
 
+    public GalleryItem findGalleryItemByTitle (String title) { return repository.findGalleryItemByTitle(title);}
+
+    public GalleryItem updateGalleryItem (long id, GalleryItem galleryItem) {
+        GalleryItem OGItem = repository.getOne(id);
+        if(OGItem.getTitle() !=null) {
+            OGItem.setTitle(galleryItem.getTitle());
+        }
+        if(OGItem.getDescription() !=null) {
+            OGItem.setDescription(galleryItem.getDescription());
+        }
+        if(OGItem.getImagePath() != null) {
+            OGItem.setImagePath(galleryItem.getImagePath());
+        }
+        return repository.save(OGItem);
+    }
+
     public boolean deleteGalleryItemById (long id){
         GalleryItem item = findGalleryItemById(id);
         if (item !=null){
