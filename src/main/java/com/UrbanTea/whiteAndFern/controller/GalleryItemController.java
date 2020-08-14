@@ -37,7 +37,6 @@ public class GalleryItemController {
 
     @PostMapping("/addGalleryItem")
     private ResponseEntity<GalleryItem> addGalleryItem(@Valid @RequestBody GalleryItem item) throws Exception {
-        String title = item.getTitle();
         return new ResponseEntity<>(service.addGalleryItem(item), HttpStatus.CREATED);
     }
 
@@ -50,7 +49,7 @@ public class GalleryItemController {
        }
     }
 
-    @DeleteMapping("removegalleryItem/{id}")
+    @DeleteMapping("/removeGalleryItem/{id}")
     private ResponseEntity<Boolean> deleteGalleryItem(@RequestParam long id) {
         return new ResponseEntity<>(service.deleteGalleryItemById(id), HttpStatus.OK);
     }

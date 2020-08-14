@@ -25,6 +25,19 @@ public class FlowerService {
         return repository.getOne(id);
     }
 
+    public Flower findFlowerByName(String name) { return repository.findFlowerByName(name);}
+
+    public Flower updateFlower(long id, Flower flower){
+        Flower OGFlower = repository.getOne(id);
+        if(OGFlower.getName() !=null) {
+            OGFlower.setName(flower.getName());
+        }
+        if(OGFlower.getImagePath() !=null){
+            OGFlower.setImagePath(flower.getImagePath());
+        }
+        return repository.save(OGFlower);
+    }
+
     public boolean deleteFlowerById (long id){
         Flower flower = findFlowerById(id);
         if (flower != null){
@@ -33,4 +46,6 @@ public class FlowerService {
         }
         return false;
     }
+
+
 }
